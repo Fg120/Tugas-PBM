@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/routes/app_pages.dart';
 
 class MomentoAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MomentoAppBar({super.key, this.hintText = 'Cari sesuatu...'});
@@ -13,9 +14,8 @@ class MomentoAppBar extends StatelessWidget implements PreferredSizeWidget {
       scrolledUnderElevation: 0,
       shadowColor: Colors.black.withValues(alpha: 0.1),
       titleSpacing: 12,
-      // kolom search
       title: TextField(
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.black87),
         cursorColor: Colors.white,
         decoration: InputDecoration(
           hintText: hintText,
@@ -41,14 +41,14 @@ class MomentoAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () {Navigator.pushNamed(context, '/cart');},
+          onPressed: () => Navigator.pushNamed(context, AppRoutes.cart),
           tooltip: 'Cart',
           icon: const Icon(Icons.shopping_cart_outlined, color: Colors.white),
         ),
         IconButton(
-          onPressed: () {},
-          tooltip: 'Chat',
-          icon: const Icon(Icons.message_outlined, color: Colors.white),
+          onPressed: () => Navigator.pushNamed(context, AppRoutes.promo),
+          tooltip: 'Promo',
+          icon: const Icon(Icons.local_offer_outlined, color: Colors.white),
         ),
       ],
     );

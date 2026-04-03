@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/routes/app_pages.dart';
 
 class MenuSection extends StatelessWidget {
   const MenuSection({super.key});
@@ -15,6 +16,14 @@ class MenuSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void openMenu(String label) {
+      if (label == 'Promo') {
+        Navigator.pushNamed(context, AppRoutes.promo);
+      } else if (label == 'Belanja') {
+        Navigator.pushNamed(context, AppRoutes.cart);
+      }
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -53,7 +62,7 @@ class MenuSection extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () => openMenu(menuItems[i]['label'] as String),
                           iconSize: 28,
                           splashRadius: 24,
                           padding: EdgeInsets.zero,
